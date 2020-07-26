@@ -8,6 +8,7 @@ import HashLoader from "react-spinners/HashLoader";
 function App() {
   let [quiz, setQuiz] = useState<QuestionType[]>([]);
   let [currentStep, setCurrentStep] = useState(0);
+  let [score, setScore] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -18,12 +19,29 @@ function App() {
     fetchData();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<EventTarget>) => {
+  const handleSubmit = (e: React.FormEvent<EventTarget>, userAns: string) => {
     e.preventDefault();
+
+    const currentQuestion = quiz[currentStep];
+    console.log(
+      "Correct ans is :" +
+        currentQuestion.correct_answer +
+        "User selection" +
+        userAns
+    );
+    if (userAns === currentQuestion.correct_answer) {
+      setScore(++score);
+    }
     if (currentStep !== quiz.length - 1) setCurrentStep(++currentStep);
     else {
-      alert("Quiz is completed");
+      alert(
+        "Quiz is completed your final score is :" +
+          score +
+          "---out of :" +
+          quiz.length
+      );
       setCurrentStep(0);
+      setScore(0);
     }
   };
 
