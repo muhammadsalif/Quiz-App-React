@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #323136;
+  font-family: "Sora", sans-serif;
+}
+.bordered {
+  border: 2px dotted red !important;
+}
+
+.questionCard {
+  background-color: #e13339;
+}
