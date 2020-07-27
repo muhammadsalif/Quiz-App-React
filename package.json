@@ -5,6 +5,7 @@
   "dependencies": {
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.1",
+    "bootstrap": "^4.5.0",
     "cra-template-typescript": "1.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
